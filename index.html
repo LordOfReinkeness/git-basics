@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>Git(Hub)</h1>
+						<p>Eine kurze Zusammenfassung</p>
+						<img data-src="./graphics/github.png" height="200px">
+					</section>
+					<section>
+						<ul>
+							<li>Nur Kommandozeile</li>
+							<ul>
+								<li>Linux & Mac: Terminal</li>
+								<li>Windows: Git Bash</li>
+								<li>VS Code Terminal</li>
+							</ul>
+							<li>Prinzipien in GUI Applikationen die gleichen</li>
+							<ul>
+								<li>Git gui</li>
+								<li>GitHub Desktop</li>
+							</ul>
+						</ul>
+					</section>
+				</section>	
+
+				<section>
+					<section>
+						<h1>Basics</h1>
+						<p>push, pull, clone ...</p>
+
+						<aside class="notes">
+							- Nur Kommandozeile
+								- 
+								- Windows: Git Bash oder VS Code Terminal
+							- nicht git gui, ...
+							- Prinzipien die gleichen ähnlich
+							- 
+						</aside>
+					</section>
+
+					<section>
+						<h3>clone</h3>
+						<ul>
+							<li>Klont Repository in ein neues Verzeichnis</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git clone <repo url>
+							
+							git clone https://github.com/GamesHub-Project/MVP-Prototype.git
+						</script></code></pre>
+					</section>
+
+					<section>
+						<h3>pull</h3>
+						<ul>
+							<li>Holt die aktuellen Änderungen von der remote</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git pull
+						</script></code></pre>
+					</section>
+
+					<section>
+						<h3>add</h3>
+						<ul>
+							<li>Nimmt lokale Änderungen in die Versionsverwaltung auf</li>
+							<li>Dateien in der .gitignore werden ignoriert</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git add .
+							
+							git add ./index.js
+						</script></code></pre>
+
+
+					</section>
+
+					<section>
+						<h3>stash</h3>
+
+						<ul>
+							<li>Legt lokale, gestagete Änderungen bei Seite</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git stash
+						</script></code></pre>
+
+						<ul>
+							<li>Verfügbare Stashes anzeigen</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git stash list
+						</script></code></pre>
+
+						<ul>
+							<li>Stash wiederherstellen</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git stash apply <stash name>
+						</script></code></pre>
+					</section>
+
+					<section>
+						<h3>commit</h3>
+						<ul>
+							<li>Fasst die hinzugefügten Änderungen zu einem Snapshot zusammen</li>
+							<li>Commit message sollte gut verdeutlichen was sich geändert hat</li>
+							<ul>
+								<li>NICHT! "made changes"</li>
+							</ul>
+							<li>Commit message soll englisch sein</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git commit -m "<commit message>"
+						</script></code></pre>
+
+					</section>
+
+					<section>
+						<h3>push</h3>
+						<ul>
+							<li>Läd commits in die remote hoch</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git push
+						</script></code></pre>
+					</section>
+
+					<section>
+						<h3>.gitignore</h3>
+						<ul>
+							<li>Definiert Dateien, die nicht in git aufgenommen werden sollen</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							#Dateiname in allen Unterordnern
+							example.txt
+
+							#Ordner mit "/" nach dem Namen
+							node_modules/
+
+							#Einzelne Elemente behalten
+							!README.md
+
+							#Dateitypen ignorieren
+							*.txt
+						</script></code></pre>
+						
+						<p><a href="https://www.toptal.com/developers/gitignore">.gitignore Generator</a></p>
+						<p><a href="https://github.com/kenmueller/gitignore">.gitignore Cheatsheet</a></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Branching</h1>
+						<img data-src="./graphics/01 A forked commit history.png" height="370px">
+					</section>
+
+					<section>
+						<h2>Branch wechseln</h2>
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git checkout <branch name>
+						</script></code></pre>
+					</section>
+
+					<section>
+						<h2>Neuen Branch anlegen</h2>
+						<ul>
+							<li>Mit der Console</li>
+							<ul>
+								<li>Der Branch Name soll keine Leerzeichen enthalten</li>
+							</ul>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git checkout -b <branch name>
+
+							git checkout -b "demo-branch"
+						</script></code></pre>
+
+						<ul>	
+							<li>In der GitHub Web UI</li>
+						</ul>
+
+						<br>
+
+						<img data-src="./graphics/NewBranch.png" height="250px">
+						
+					</section>
+
+					<section>
+						<h2>Branch für Issue anlegen</h2>
+						
+						<img data-src="./graphics/BranchFrom.png">
+					</section>
+
+				</section>
+
+				<section>
+
+					<section data-background-image="./graphics/merge.gif">
+						<h1>Merging</h1>
+					</section>
+
+					<section>
+						<h2>git merge</h2>
+						
+						<ul>
+							<li>Merged Änderungen aus dem main-Branch in den feature-Branch</li>
+							<li>Nie Änderungen in main mergen</li>
+						</ul>
+
+						<pre width="70%"><code class="bash" data-trim><script type="text/template">
+							git checkout <feature branch>
+
+							git merge <main>
+							
+							# Kurzform
+							git merge <to> <from>
+						</script></code></pre>
+
+					</section>
+
+					<section>
+						<h2>git merge</h2>
+
+						<img data-src="./graphics/02 Merging main into the feature branh.png">
+					</section>
+
+					<section>
+						<h2>Merge Konflikte</h2>
+
+						<pre><code class="text" data-trim><script type="text/template">
+							Auto-merging test.txt
+							CONFLICT (content): Merge conflict in test.txt
+							Automatic merge failed; fix conflicts and then commit 
+							the result.
+						</script></code></pre>
+					</section>
+
+					<section>
+						<h2>Merge Konflikte</h2>
+
+						<ul>
+							<li>Dateien mit Konflikten durchgehen</li>
+						</ul>
+						
+						<pre><code class="text" data-trim><script type="text/template">
+							<<<<<<< HEAD
+							<lokale Version>
+							=======
+							<Version im einkommenden Branch>
+							>>>>>>> main
+						</script></code></pre>
+
+						<ul>
+							<li>Ungewünschten Code löschen</li>
+							<li>als neuen Commit hochladen</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Pull request stellen</h2>
+
+						<ul>
+							<li>Wie Können Änderungen in main gebracht werden?</li>
+							<li>Pull Request (PR)</li>
+							<li>Um sicher zu gehen. dass ...</li>
+								<ul>
+									<li>... neuer Code reviewed wurde</li>
+									<li>... alle Tests bestanden sind</li>
+									<li>... der Build nicht failt</li>
+								</ul>
+						</ul>
+
+						<img data-src="./graphics/New PR.png">
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h1>SSH Keys</h1>
+					</section>
+
+					<section>
+						<h2>SSH-Key erstellen</h2>
+
+						<pre><code class="bash" data-trim><script type="text/template">
+							ssh-keygen
+						</script></code></pre>
+
+						<pre><code class="text" data-trim data-line-numbers="|2|3-4|5-9"><script type="text/template">	
+							Generating public/private rsa key pair.
+							Enter file in which to save the key (~/.ssh/id_rsa): 
+							Enter passphrase (empty for no passphrase): 
+							Enter same passphrase again: 
+							Your identification has been saved in ~/.ssh/id_rsa-demo
+							Your public key has been saved in ~/.ssh/id_rsa-demo.pub
+							The key fingerprint is:
+							SHA256:3ckpngU3WYmfUkeWyJBBAAyPRS44cElNDuBJKuCdBfs 
+							lukas@lukas-razer-blade
+						</script></code></pre>
+
+					</section>
+
+					<section>
+						<h2>SSH-Key in GitHub hinzufügen</h2>
+
+						<ul>
+							<li>ssh Publickey aus dem File kopieren</li>
+							<ul>~/.ssh/id_rsa-demo.pub</ul>
+						</ul>
+						<pre><code class="bash" data-trim><script type="text/template">
+							cat .ssh/id_rsa-demo.pub 
+						</script></code></pre>
+
+						<ul>
+							<li><a href="https://github.com/settings/keys">Hier den key einspeichern</a></li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>SSH Config anpassen</h2>
+
+						<ul>
+							<li>Eventuell mus ssh der Key mitgeteilt werden</li>
+							<li>Konfigurationsdatei unter ~/.ssh/config</li>
+						</ul>
+						
+						<pre><code class="text" data-trim><script type="text/template">	
+							Host github.com
+								User git
+								Hostname github.com
+								PreferredAuthentications publickey
+								IdentityFile /home/user/.ssh/id_rsa-demo
+						</script></code></pre>
+
+					</section>
+
+					<section>
+						<h2>pull und push mit SSH</h2>
+
+						<img data-src="./graphics/pull-ssh.png">
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width: '43%',
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
