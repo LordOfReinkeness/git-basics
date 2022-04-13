@@ -1,10 +1,11 @@
 # Git(Hub) Basics
 
-Start with
-```npm start```
-page on 
-```http://localhost:8000```
+- Open ```index.html```
 
-Or just open 
-```index.html```
-in your browser
+**or**
+
+- Run with node for full functionality 
+  - run ```npm install```
+  - run server with ```npm start```
+
+[Full documentation](https://revealjs.com/)
